@@ -1,5 +1,21 @@
 const mural = document.querySelector('.mural'); //função para trocar layout no click do botão linha
 
+//aula4**
+const template = document.querySelector('#template-cartao');
+let numeroCartao = 0;
+
+export function adicionarCartao(conteudo) {
+    numeroCartao++;
+    const cartao = template.content.firstElementChild.cloneNode(true); //gerando um obj igual mas com valor na memo diferente
+    cartao.innerHTML = cartao.innerHTML.replaceAll('{{NUMERO_DO_CARTAO}}', numeroCartao).replace('{{CONTEUDO_CARTAO}}', conteudo);
+    mural.append(cartao);
+}
+
+
+
+//fim aula4
+
+//aula3
 export function toggleLayout() {
     mural.classList.toggle('mural--linha');
 }
@@ -43,3 +59,5 @@ mural.addEventListener('keypress', function (event) {
         event.target.click(); // forço um click pra puxar o evento change
     }
 });
+
+//fim aula3

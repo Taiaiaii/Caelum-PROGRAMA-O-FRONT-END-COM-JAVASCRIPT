@@ -1,6 +1,6 @@
 //validação de form
-
-import { notificar } from "./notificacao";
+import {adicionarCartao} from "./mural.js"
+import {notificar} from "./notificacao.js";
 
 // 1) Guardarmos a referência do formulário e do campo de texto presentes na página;
 // 2) Adicionarmos um evento "submit"
@@ -15,16 +15,23 @@ import { notificar } from "./notificacao";
 // à div criada.Como a classe "formNovoCartao-msg"
 // tem uma animação CSS associada a ela(com efeito de entrada e de saída), para removermos a mensagem de erro na tela, precisamos esperar a animação terminar.Quem nos permite saber quando ela termina é o evento "animationend".
 
-import {notificar} from "./notificacao.js"
+
 
 const formulario = document.querySelector('form');
 const campoTexto = formulario.querySelector('textarea');
 
-formulario.addEventListener('submit', function(event) {
+formulario.addEventListener('submit', function (event) {
     event.preventDefault();
     if (!campoTexto.value.trim()) {
-       notificar('Por favor, preencha o campo corretamente') 
+        notificar('Por favor, preencha o campo corretamente!');
     }
+    else {
+        adicionarCartao(campoTexto.value.trim());
+        formulario.reset();
+    }
+
+
+
 });
 
 // comentário de estudo:
@@ -38,4 +45,4 @@ formulario.addEventListener('submit', function(event) {
 
 // depois apenas colocamos um escutador na div, para que quando ela for animada a div seja removida, para que não se acumulem divs de mensagem na pagina
 
-// a logica foi para o document notificacao.js
+// a logica foi para o document notificacao.js - aula4
