@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Javascript: querySelector e querySelectorAll</h1>
+
+    <style>
+        p {
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        .vermelho {
+            background-color: #fff0f0;
+            border-color: red;
+            color: red;
+        }
+    </style>
+
+    <p>Parágrafo 1</p>
+    <p class="vermelho">Parágrafo 2</p>
+    <p>Parágrafo 3</p>
+    <p>Parágrafo 4</p>
+    <p class="vermelho">Parágrafo 5</p>
+    <p class="vermelho">Parágrafo 6</p>
+    <span class="vermelho">meu span vermelho</span>
+    <p>Parágrafo 7</p>
+    <p>Parágrafo 8</p>
+    <p>Parágrafo 9</p>
+    <p id="p10">Parágrafo 10</p>
+
+    <script>
+
+        const p10 = document.querySelector('#p10')
+        console.log(p10);
+
+        p10.textContent= "texto alterado pelo JS"
+        p10.innerHTML = "texto alterado <br> novamente pelo JS"
+        p10.style.fontStyle = 'italic';
+
+        const vermelhos = document.querySelectorAll('.vermelho');  //se trata de array, usar estrutura de repetição para manipular
+        console.log(vermelhos);
+
+        // for (let i =0; i < vermelhos.length; i++) {
+        //     vermelhos[i].textContent = "vermelhos alterados pelo JS"
+        // }
+
+        for (let vermelho of vermelhos) {
+        vermelho.textContent = "vermelhos alterados pelo JS";
+        }
+
+        // forEach: utilizado em arrays e seus tipos descendentes como NodeList
+        vermelhos.forEach(function(vermelho, indice) {
+            vermelho.textContent = "vermelho"
+        });
+
+        // arrow functions
+
+        vermelho.forEach(vermelho=>{
+            vermelho.textContent = "alterado pelo JS com arrow"
+        })
+
+        const soma = (v1, v2) => v1 +v2;
+        console.log('resultado:', soma(5,6));
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript: Web Storage API</h1> 
+
+    <select id="tema">
+        <option value=""> -- selecione um tema -- </option>
+        <option value="red">Vermelho</option>
+        <option value="blue">Azul</option>
+    </select>
+
+    <button id="limpar">Resetar Tema</button>
+
+</body>
+
+<script>
+
+    //guardar pequenos pedaços de comandos no navegador
+    const selectTema = document.querySelector('#tema');
+    const btnLimpar = document.querySelector('#limpar');
+
+    let temaSalvo = sessionStorage.getItem('corTema'); //recuperar os dados para aplicar na pagina quando recarregar
+    document.body.style.backgroundColor = temaSalvo
+
+
+    selectTema.addEventListener('change', function(){
+        document.body.style.backgroundColor = selectTema.value;
+        sessionStorage.setItem('corTema', selectTema.value);  
+        //salva uma informação no storage DA SEÇÃO, precisa de uma chave e um valor (SO FICA ENQUANTO A SEÇÃO DURAR) trocando por "local"
+        // onde tem "storage" ele fica mesmo fechando a guia e abrindo de novo
+    });
+
+    btnLimpar.onclick = () => {
+        sessionStorage.removeItem('corTema');
+        document.body.style.backgroundColor = '';
+    }
+
+
+</script>
+
+</html>
+

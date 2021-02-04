@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Básico</h1>
+
+    <script>
+        // 'use strict';
+        // proibe a criação de variaveis sem um comando declarativo esplicito
+        // proibe parametros duplicados em funções
+        // proibe o uso do comando with
+        // modifica o comportamento do comando this
+
+        'use strict';
+
+        var a = 888;
+        if (true) {
+            var b = 999;
+        }
+
+        console.log('o valor da variavel a é:', a); //ok
+        console.log('o valor da variavel b é:', b); //ok
+
+
+        function teste1() {
+            var idade = 17;
+            console.log('o valor da variavel dentro da funcao', idade); //ok
+        }
+
+        teste1()
+        //console.log('o valor da variavel fora da funcao', idade);  --> referenceError
+
+        // let respeita escopos
+        let c = 777;
+        if (true) {
+            let d = 666;
+            console.log('o valor da variavel d é:', d); //ok
+        }
+
+        console.log('o valor da variavel c é:', c);
+        //console.log('o valor da variavel d é:', d);  --> referenceError
+
+        //constantes
+
+        const x = 10;
+        // x = 2; --> typeError
+
+        //objetos no Javascript
+
+        const pessoa = {
+            nome: "pedro", // propriedade
+            sobrenome: "oliveira",
+            idade: 35,
+
+            dizerOla() { // metodo
+                console.log('olá meu nome é:', this.nome);
+            }
+
+        }
+
+        console.log(pessoa);
+        console.log('o nomeda pessoa é', pessoa.nome);
+        pessoa.dizerOla();
+
+        pessoa.nome = "tai"; //ok
+        pessoa.sexo = "F"; //ok
+        pessoa.dizerTchau = function () {
+            console.log('estou dizendo fucking tchau');
+        }
+
+        pessoa.dizerTchau();
+
+        // function expression (não tem hoisting) - outra maneira de declarar funcao
+
+        const subtrair = function () {
+
+        }
+
+        // event handlers
+
+        window.onload = function () {
+            console.log('carregada')
+        }
+
+        //event listeners
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manipulação de eventos na DOM</title>
+</head>
+
+<body>
+
+    <h1>JS: Formulário</h1>
+    <style>
+        .msg {
+            padding: 15px 25px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f2f2f2;
+        }
+
+        .msg-erro,
+        .destacar {
+            border-color: #db2323;
+            color: #db2323;
+            background-color: #fff0f0;
+        }
+
+        .msg-sucesso {
+            border-color:
+                #30cf6c;
+            color: #30cf6c;
+            background-color: #e3ffee;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form {
+            width: 400px;
+            margin-top: 20px;
+        }
+
+        body {
+            padding: 60px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #ccc;
+            padding: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            border-radius: 5px;
+            border: none;
+            background: green;
+            color: #fff;
+            padding: 15px 35px;
+        }
+
+        .escondida {
+            display: none;
+        }
+    </style>
+
+    <form action="">
+        <label for="">* Nome:<br><input type="text" data-mensagem="nome é obrigatório" class="obrigatorio"></label>
+        <label for="">* E-mail:<br><input type="text" data-mensagem="E-mail é obrigatório" class="obrigatorio"></label>
+        <label for="">* Telefone:<br><input type="text"></label>
+
+        <button>Enviar</button>
+    </form>
+
+    <script>
+        // 1) guardar a referência do formulário
+        // 2) adicionar o evento submit ao formulário
+        // 3) impedir que a página recarregue ao clique do botao enviar antes da validação
+        // 4) selecionar na DOM os campos obrigatórios do form
+        // 5) percorrer cada campo e validar se o conteúdo está vazio
+        // 6) se estiver vazio, guardar a mensagem de erro específica em um array e adicionar ao campo a classe destacar, para o campo ficar vermelho
+        // 7) caso contrario remover a classe destacar
+        // 8) se a quantidade das mensagem de erro no array for > que zero temos que exibir a mensagem de errio. Crie uma div em memória e adicione nela as classes "msg" e "msg-erro" e como conteudo html as mensagens de erro coletadas
+        // 9) caso contrario adicione na div criada  as classes msg e msg-sucesso e como conteudo textutal "cadastro realizado com sucesso"
+
+
+        let formulario = document.querySelector('form'); //1
+        const divMsg = document.createElement('div'); // referente ao passo 8
+        divMsg.classList.add('msg', 'msg-erro'); // referente ao passo 8
+
+        formulario.addEventListener('submit', (event) => { //2
+            
+            event.preventDefault(); // 3) previne o evento padrão que é o de recarregar a página
+            
+            let camposObrigatorios = formulario.querySelectorAll('.obrigatorio') //4
+
+            let mensagensErro = []; // referente ao passo 5/6
+
+            for (let campo of camposObrigatorios) { //5
+
+                if (!campo.value.trim()) { // se o valor do campo não for verdadeiro - string vazia = falso
+                    mensagensErro.push(campo.dataset.mensagem); //6
+                    campo.classList.add('destacar'); //6
+                } else {
+                    campo.classList.remove('destacar'); //7
+                }
+
+            }
+
+            if (mensagensErro.length > 0) { //8
+                divMsg.innerHTML = `
+            <strong>Atenção!</strong><br>
+            ${ mensagensErro.join('<br>') }
+            `; // o join concatena a variável com o parametro
+
+                divMsg.classList.replace('msg-sucesso', 'msg-erro')
+            } else { //9
+                divMsg.textContent = "cadastro realizado com sucesso";
+                divMsg.classList.replace('msg-erro', 'msg-sucesso')
+            }
+
+            formulario.insertAdjacentElement('beforebegin',divMsg); // adiciona a div como primeiro filho do formulário
+        });
+
+
+
+
+    </script>
+
+</body>
+
+</html>

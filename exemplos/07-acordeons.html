@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Acordeões com Web Animation API</h1>
+    <div class="acordeoes">
+        <div class="acordeao">
+            <h4>Acordeão 1</h4>
+            <div class="conteudo">
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore neque eaque, placeat nemo
+                    praesentium eos dolorem veniam voluptate, quis officiis culpa. Non, repellendus illum. Nisi tenetur
+                    rem distinctio nesciunt illum!</div>
+            </div>
+        </div>
+        <div class="acordeao">
+            <h4>Acordeão 2</h4>
+            <div class="conteudo">
+                <div>Dolorem eaque tempore tempora alias laborum sunt animi neque quaerat debitis doloremque veniam
+                    blanditiis eligendi minus dolorum voluptate rem enim ratione, aperiam possimus vitae voluptatem. Est
+                    voluptas quis a doloremque.</div>
+            </div>
+        </div>
+        <div class="acordeao">
+            <h4>Acordeão 3</h4>
+            <div class="conteudo">
+                <div>Ea laboriosam, vel voluptatem nemo, beatae numquam provident impedit, iure accusantium similique
+                    sequi incidunt mollitia sapiente dolorem illum autem itaque quam quo temporibus blanditiis! Porro
+                    illo provident fugit explicabo inventore!</div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 16px;
+        }
+
+        .acordeoes {
+            width: 400px;
+        }
+
+        .acordeao {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            cursor: pointer;
+            background-color: #eee;
+            margin: 0;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .conteudo {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .conteudo div {
+            padding: 20px;
+        }
+    </style>
+    <script>
+        const acordeoes = document.querySelector('.acordeoes');
+        acordeoes.addEventListener('click', event => {
+            if (event.target.tagName === 'H4') {
+                const divConteudo = event.target.nextElementSibling;
+                let animationHeight = divConteudo.firstElementChild.offsetHeight;
+
+                if (divConteudo.offsetHeight != 0) { //se é true, ou seja se é diferente de zero
+                    animationHeight = 0;
+                }
+
+                divConteudo.animate({ height: animationHeight + 'px'}, {
+                    duration: 600,
+                    fill: 'forwards'
+                });
+
+                const acordeaoAtual = divConteudo.parentElement;
+                for (let acordeao of acordeoes.children) {
+                    if (acordeao != acordeaoAtual) {
+                        acordeao.lastElementChild.animate({ height: '0px'}, {
+                        duration: 600,
+                        fill: 'forwards'
+                        } );
+                    }
+                }
+            }
+
+        });
+        
+
+
+
+    </script>
+
+</body>
+
+</html>
