@@ -99,7 +99,26 @@
             }
 
         });
+                //COMENTARIO DE ESTUDO
         
+// primeiramente criamos a constante acordeões com função de buscar na DOM o elemento que tem a classe"acordeões" -que no caso é a div que contem 
+// todas as divs. Em seguida atribuímos a ela o escutador evento de clicar, e já iniciamos uma função callback do tipo arrow para setar o que deve acontecer.
+// Então abrimos uma estrutura de repetição do tipo if que verifica se o alvo do evento do click tem como nome de tag H4. Se este for o caso criamos uma 
+// constante chamada divConteudo que recebeo próximo irmão (nextElementSibling) do alvo do evento, isso é o proximo irmão do h4, isso é a div com a classe 
+//"conteúdo". 
+// Criamos também uma variavel chamada animationHeight que recebe o tamanho (offsetHeight) do primeiro filho da divConteudo -isso é - 
+//o tamanho da div que está dentro da div com classe "conteudo". Assim fechamos essa estrutura.
+//Abrimos entao outra estrutura do tipo if, para verificar se o tamanho da divConteudo é diferente de zero. Se for,dizemos que a variavel animationHeight 
+//tem valor zero. Fazemos isso para que quando a caixa de conteúdo estiver aberta (tamanho da div diferente de zero) ao ser clicada novamente ela se feche 
+//(torne o valor da div filha 0). E fechamos essa estrutura.Por fim, atribuimos a divConteudo o metodo animate(), da Web Animation API , que permite alterar
+// as configurações do CSS. Setamos que, ao ser animado, a altura da divConteudo deve ser a mesma de animationHeight, ou seja deve se expandir e mostrar 
+//o conteúdo( + 'px' ??).
+// Setamos também o tempo que irá demorar e o fill(diz se a animação deve acontecer antes (backards) ou depois (forwards))
+// Posteriormente criamos uma constante chamada acordeaoAtual que recebe o pai da divConteudo - ou seja, a div com classe acordeao -. Lembrando que divConteudo 
+// é aquela que está sendo clicada. Criamos uma estrutura de repeticão do tipo for/of que para cada acordeao (nova variavel referenciando as divs com
+// classe acordeao) dentre os filhos dos acordeoes (variavel criada na primeira linha) SE este acordeao for diferente do acordeao atual, o ultimo filho desse
+// acordeao ou seja, a div de classe conteúdo deverá ter altura zero. Isso é, se nao for o acordeao
+// atual, devera ser fechado de forma que cada vez que clicamos em um, o outro se fecha.
 
 
 

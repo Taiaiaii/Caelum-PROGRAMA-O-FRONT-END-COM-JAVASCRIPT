@@ -40,6 +40,25 @@
         document.body.style.backgroundColor = '';
     }
 
+            //COMENTARIO DE ESTUDO
+// a web-storage serve para armazenar configurações por um tempo no brownser. pode ser setada na session, de modo que ao fechar a janela e abrir novamente
+// ela não permanecerá, ou em local, de forma que ela vai permanecer enquanto o usuário não reseta-la.
+// assim primeiro criamos uma constante para referenciar o elemento com id "tema" na dom, e outra para referenciar o elemento de id "limpar" sendo o selector
+// e o botao respectivamente.
+
+// posteriormente criamos uma variavel chamada "temaSalvo" para receber a propriedade pega qualquer item com a chave "corTema" na session e entao dissemos que
+//  o corpo  do nosso documento deve receber como cor de fundo o valor de "temaSalvo" - isso é o valor guardado em nossa sessao.
+
+// Entao colocamos um escutador de evento em selectTema para escutar o evento change (já preconfigurado para seletores) - e dissemos que o corpo do nosso
+// documento ao ser disparado o evento, deve receber como cor de fundo o valor do select tema (em cada optio há um "value" - atributo que permite receber
+// valores de css como cor ). 
+// Pedimos para a sessao setar uma chave chamada "corTema" que tem como valor o value da selectTema.
+
+// por fim atribuimos a variavel btn limpar um evento do tipo handler, e fazemos a função callback no tipo arrow, informando que quando clicado o botao
+// a session deve remover a chave "corTema" e a cor do corpo do documento deve ser vazia.
+
+
+
 
 </script>
 

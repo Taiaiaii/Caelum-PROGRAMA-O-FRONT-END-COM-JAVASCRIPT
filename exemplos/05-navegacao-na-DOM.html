@@ -136,6 +136,17 @@
 
         }
     });
+                //COMENTARIO DE ESTUDO
+// primeiro criamos a variavel tabela busca que recebe o elemento table da DOM. Adicionamos então a esta variavel um evento escutador de clique, e 
+// iniciamos uma função do tipo function expression com parametro event para conter as regras do jogo.Criamos então dentro da função uma variavel chamada
+// isBotaoExcluir que referencia quando o alvo do evento quando este possuir a class "excluir". Essa classe está setada no botão excluir de cada linha no HTML, de forma que quando o clique for nesse botão se tratará dessa variavel criada. Abrimos então uma estrutura de repetição do tipo if a qual verifica 
+// se a variavel isBotaoExcluir é verdadeira (oclique foi no botao excluir) adicionamos tambem um &&&confirm( função que abre uma caixa de dialogo para o usuário dar ok, ou cancel. Ao dar ok se torna verdadeiro o confirm) - estamos dizendo aqui que SE isBotaoExcluir e confirm forem verdadeiros podentrar nesse if, onde dizemos que: 1) variavel botaoExcluir é o alvo do evento e 2) dizemos que ele deve remover o elemento mais proximo que contenha a tag tr - ou seja - a propria linha. Assim fechamos a função. Em seguida adicionamos mais um evento escutador de clique à tabela e abrimouma nova function do tipo expression. Criamos na função a variavel editar que assim como no exemplo anterior possui a deferencia para o botão qucontem a classe, no caso"editar".
+// Então dizemos que se isBotaoEditar for verdadeiro (o evento foi nesse botao) 1)variavel botãoEditar recebe o alvo do evento e 2) criamos uma variavel chamada isConteudoEditavel a qual é atribuida um valor inicial de "false". Ainda dentro da estrutura if, criamos um novo if que ira verificar se o conteudo (textContent) menos os espaços varios (trim) do alvo (botao editar) é igual a tring "Editar". Caso positivo, o conteúdo deve mudar para "salvar ediçao", caso contrario, deve mudar para "Editar".Isso serve para que depois que o botao editar for clicado, caso em que o usuário podra alterar a linha ele possa salvar, e depois de salvo, o botao volte para seu valor original. Fechamos essa segunda estrtutura, voltando assim para o primeiro if que ainda está aberto.Criamos então uma variável chamada tdTio. Dizemos que ela deve receber o irmao anterior (previousElementSibling)
+// do pai (parentElement)de botaoEditar, pois o botaoEditar está DENTRO de uma td (celula), assim a td é seu pai, e queremos mexer no
+// elemento IRMAO dessa td que é a td ao lado.Contudo, não queremos mexer apenas na td ao lado mas em todas as outras anteriores. Assim colocamos as regras
+// dentro de uma estrutura derepetição do tipo while. Dizemos que enquanto o valor de tdTio for diferente de null (enquanto houverem celulas
+// com conteudo) ele devera:1)adicionar a classe "editavel" se não houver e retirar se houver (toggle) para que a celula fique com configuações diferentes setadas no CSS2) dizer que a tdTio com propriedade contentEditable(permite edicao de conteudo na tela) recebe a variavel "isConteudoEditavel" cuja qual
+// só tem valor true na linha 122, caso em que o botao editar foi clicado pela primeira vez 3) a tdTio passa a ser o proximo irmão para continuar percorrendo as td irmas que contem conteúdo até que chegue em um vazio, ou seja acabemas tds.
 
  
  </script>
