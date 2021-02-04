@@ -29,3 +29,14 @@ formulario.addEventListener('submit', function(event) {
 
     }
 });
+
+// comentário de estudo:
+
+// criamos a constante formulário para receber da DOM o form, e a constante campoTexto para receber a text area 
+// adicionamos a formulário um evento escutador para perceber o submit (padrão de botao enviar em formulario) e criamos a função callback 
+// a primeira coisa dentro da função e adicionar ao evento a propriedade que previne o comportamento padrão (recarregar a pagina ao dar o submit)
+// então dissemos que se o valor do campotexto menos os seus espaços vazios (trim) for um bolean falso, criamos uma div, atribuimos a ela umaclasse especifica
+// e um texto.
+// colocamos a div dentro do formulário com a função append.
+
+// depois apenas colocamos um escutador na div, para que quando ela for animada a div seja removida, para que não se acumulem divs de mensagem na pagina
