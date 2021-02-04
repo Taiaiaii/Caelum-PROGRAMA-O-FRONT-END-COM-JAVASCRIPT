@@ -1,3 +1,5 @@
+import {adicionarCartao} from "./mural.js";
+
 // 1 - Guardar a referência do botão de Ajuda da aplicação CEEP;
 //     2 - Quando o botão
 // for clicado, criaremos um Array contendo as seguintes mensagens: 
@@ -14,7 +16,7 @@ btn.onclick = () => {
 
 
     for (let mensagem of mensagens) {
-        alert(mensagem);
+        adicionarCartao(mensagem);
     }
 };
 
