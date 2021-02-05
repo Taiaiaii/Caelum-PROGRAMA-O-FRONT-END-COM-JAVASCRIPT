@@ -4,12 +4,10 @@ export function adicionarContato(nome, telefone) {
     
 
     const novaLinha = document.createElement('tr'); // se criada fora do else, so salva 1. pq? -pq fora do submit ele cria uma e atualiza, aqui dentro ele cria uma a cada iteração
-    let novoNome = nome.value.trim();
-    let novoTel = telefone.value.trim();
     novaLinha.innerHTML =
         `
-                <td>${novoNome}</td>
-                <td>${novoTel}</td>
+                <td>${nome}</td>
+                <td>${telefone}</td>
                 <td><button class="btn btn-danger btn-sm">Excluir</button></td>
                 `;
     tabela.append(novaLinha);

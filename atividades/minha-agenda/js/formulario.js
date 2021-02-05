@@ -14,7 +14,7 @@ formulario.addEventListener('submit', function (event) {
     } else if (!telefone.value.trim()) {
         alert(telefone.dataset.msg);
     } else {
-        adicionarContato(nome,telefone);
+        adicionarContato(nome.value,telefone.value);
         formulario.reset();
     }
 
