@@ -1,0 +1,5 @@
+criar um formulário onde o usuário possa inserir um titulo, um nome e um texto
+
+1: validar o formulario
+2: receber as informaçoes
+3: jogar em um acordeao

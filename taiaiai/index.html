@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Taiaiai</title>
+    <link rel="stylesheet" href="./styles.css/reset.css">
+    <link rel="stylesheet" href="./styles.css/site.css">
+</head>
+
+<body>
+    <div class="site-container">
+        <h1 class="titulo-principal">Deixe Sua Mensagem</h1>
+        <form action="" class="formulario">
+            <div class="grupo grupo-ref1">
+                <label class="etiqueta">Nome</label>
+                <input type="text" class="campo" value="" data-msg="Nome é obrigatorio" placeholder="Nome"></input>
+            </div>
+            <div class="grupo grupo-ref2">
+                <label class="etiqueta">Título</label>
+                <input type="text" class="campo" value="" data-msg="O título é obrigatorio"
+                    placeholder="Título da mensagem"></input>
+            </div>
+            <div class="grupo grupo-ref3">
+                <label class="etiqueta">Mensagem</label>
+                <textarea cols="30" rows="10" id="mensagem" class="campo-msg" value="" data-msg="mensagem é obrigatória"
+                    placeholder="Deixe aqui sua mensagem"></textarea>
+            </div>
+            <div class="grupo grupo-ref4"><button id="botao"> Enviar</button></div>
+        </form>
+        <div class="entra-acordeoes">
+            <template id="template-acordeao">
+                <div class="acordeoes">
+                    <div class="acordeao">
+                        <h2 class="nome-acordeao"></h2>
+                        <div class="conteudo-acordeao">
+                            <h3 class="titulo-msg"></h3>
+                            <p class="msg"></p>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
