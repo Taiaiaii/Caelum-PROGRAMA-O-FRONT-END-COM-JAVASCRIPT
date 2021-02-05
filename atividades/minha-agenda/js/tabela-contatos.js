@@ -20,7 +20,7 @@ tabela.addEventListener('click', function (event) {
         const botaoExcluir = event.target;
         botaoExcluir.closest('tr').remove();
     }
-});
+}); 
 
 // primeiro criamos a constante tabela para receber a referencia do elemento que contem o id tabelaContatos. Então criamos uma função exportavel (para 
 // que possa ser chamada em outro documento) que recebe os parametros nome e telefone. Dentro da função criamos a função novaLinha que recebe 
