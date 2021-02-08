@@ -30,6 +30,7 @@ formulario.addEventListener('submit', function(event) {
        formulario.reset();
        animaAcordeao();
        
+       
 
 
    }

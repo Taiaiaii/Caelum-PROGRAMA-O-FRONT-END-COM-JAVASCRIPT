@@ -12,10 +12,9 @@ export function animaAcordeao() {
                     altura = 0;
                 }
 
-                conteudo.animate({
-                    height: altura + 'px'
-                }, {
-                    duration: 600,
+                conteudo.animate(
+                    { height: altura + 'px'}, 
+                    { duration: 600,
                     fill: 'forwards'
                 });
 
