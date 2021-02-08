@@ -1,5 +1,5 @@
 //validação de form
-import {adicionarCartao} from "./mural.js"
+import {adicionarCartao} from "./mural.js";
 import {notificar} from "./notificacao.js";
 
 

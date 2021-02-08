@@ -125,38 +125,38 @@
             formulario.insertAdjacentElement('beforebegin',divMsg); // adiciona a div como primeiro filho do formulário
         });
 
-    //   primeiro criamos uma variável a que chamamos de "formulario" e atribuimos a ela o elemento form do html utilizando a
-    //   propria tag, através do querySelector.
-    //   Então criamos uma segunda variável, a qual atribuimos a criação de um elemento DIV na DOM. Em seguida adicionamos a ela
-    //   a propriedade que adiciona uma classe css atraves do classList.add.
-    //   Então na primeira variável (formulario) atribuimos o evento submit: evento já configurado para entender que um
-    //   botão dentro de um Formulário submita e recarrega a página. Usammos função do tipo arrow para receber os comandos com o parametro
-    //   padrao "event". No proprio event colocamos a função preventDefault para que nao se comporte da maneira padrão,
-    //   recarregando a página ao clicar no botão enviar.
-    //   Em seguida, criamos a variavel camposObrigatorios e atribuimos a ela a seleçao de todos os elemetos dentro da
-    //   variavel formulario que contem a classe "obrigatório" e criamos tambem a variável mensagensErro atribuindo um
-    //   array vazio para que posteriormente receba as mensagens de erro.
-    //   Criamos então uma estrutura de repetiçao (for/of) que verifica se em cada elemento de "camposObrigatorios" há algum
-    //   com valor "falso" (string vazia) e para verificar de maneira precisa, usamos o trim() para retirar os espaços
-    //   vazios. No caso em que há o valor falso (!campo.value.trim()) pedimos que seja empurrado para dentro do array
-    //   uma mensagem de erro referente aquele imput vazio. No imput já está configurado um data-mensagem, 
-    //   assim utilizamos o dataset.mensagem para colher essa mensagem e guarda-la no elemento. Adicionamos
-    //   também a este elemento que tem o valor falso uma classe "destacar", para que o mesmo fique destacado com as
-    //   configurações que foram setadas para essa classe no css. Dentro dessa estrutura de repetição, criamos um else,
-    //   para caso o valor nao seja falso (há string preenchida) no qual a classe destacar será removida. Assim fechamos essa
-    //   estrutura.
-    //   Criamos então uma nova estrutura (agora um if) para verificar se há dentro do array mensagensErro alguma mensagem.
-    //   Se o tamanho do array (.length) for maior que zero, é porque temos mensagem de erro, por tanto há campos vazios
-    //   Então nesse caso adicionamos a variável divMsg criada na segunda linha usando a propriedade innerHTML, que permite a adição de textos 
-    //   e de conteúdo html, para adicionarmos a ela a mensagem de erro. Em seguida utilizamos o replace a classe para que caso a classe seja 
-    //   referente a mensagem se sucesso,torne-se a mensagem de erro. Na contrapartida (else) - caso o array não tenha tamano maior que 0 - adicionamos a
-    //   variavel divMsg um textContent com mensagem de sucesso, e no replace da classe trocamos a classe de mensagem de
-    //   erro, para mensagem de sucesso. E fechamos essa estrutura. Por fim, a variável formulário - a primeira criada cuja qual contem o elemento
-    //   formulário do HTML - atribuimos a
-    //   propriedade insertAdjacentElement (permite adicionar um conteudo antes ou depois do conteudo a que foi atribuído)
-    //   com a propriedade "beforebegin" (que sinaliza que deve ser posicionado antes) e a propriedade divMsg (que informa
-    //   O QUE deve ser adicionado - e no caso é o elemeto DIV que criamos na segunda linha e configuramos ao longo do
-    //   código)
+//   primeiro criamos uma variável a que chamamos de "formulario" e atribuimos a ela o elemento form do html utilizando a
+//   propria tag, através do querySelector.
+//   Então criamos uma segunda variável, a qual atribuimos a criação de um elemento DIV na DOM. Em seguida adicionamos a ela
+//   a propriedade que adiciona uma classe css atraves do classList.add.
+//   Então na primeira variável (formulario) atribuimos o evento submit: evento já configurado para entender que um
+//   botão dentro de um Formulário submita e recarrega a página. Usammos função do tipo arrow para receber os comandos com o parametro
+//   padrao "event". No proprio event colocamos a função preventDefault para que nao se comporte da maneira padrão,
+//   recarregando a página ao clicar no botão enviar.
+//   Em seguida, criamos a variavel camposObrigatorios e atribuimos a ela a seleçao de todos os elemetos dentro da
+//   variavel formulario que contem a classe "obrigatório" e criamos tambem a variável mensagensErro atribuindo um
+//   array vazio para que posteriormente receba as mensagens de erro.
+//   Criamos então uma estrutura de repetiçao (for/of) que verifica se em cada elemento de "camposObrigatorios" há algum
+//   com valor "falso" (string vazia) e para verificar de maneira precisa, usamos o trim() para retirar os espaços
+//   vazios. No caso em que há o valor falso (!campo.value.trim()) pedimos que seja empurrado para dentro do array
+//   uma mensagem de erro referente aquele imput vazio. No imput já está configurado um data-mensagem, 
+//   assim utilizamos o dataset.mensagem para colher essa mensagem e guarda-la no elemento. Adicionamos
+//   também a este elemento que tem o valor falso uma classe "destacar", para que o mesmo fique destacado com as
+//   configurações que foram setadas para essa classe no css. Dentro dessa estrutura de repetição, criamos um else,
+//   para caso o valor nao seja falso (há string preenchida) no qual a classe destacar será removida. Assim fechamos essa
+//   estrutura.
+//   Criamos então uma nova estrutura (agora um if) para verificar se há dentro do array mensagensErro alguma mensagem.
+//   Se o tamanho do array (.length) for maior que zero, é porque temos mensagem de erro, por tanto há campos vazios
+//   Então nesse caso adicionamos a variável divMsg criada na segunda linha usando a propriedade innerHTML, que permite a adição de textos 
+//   e de conteúdo html, para adicionarmos a ela a mensagem de erro. Em seguida utilizamos o replace a classe para que caso a classe seja 
+//   referente a mensagem se sucesso,torne-se a mensagem de erro. Na contrapartida (else) - caso o array não tenha tamano maior que 0 - adicionamos a
+//   variavel divMsg um textContent com mensagem de sucesso, e no replace da classe trocamos a classe de mensagem de
+//   erro, para mensagem de sucesso. E fechamos essa estrutura. Por fim, a variável formulário - a primeira criada cuja qual contem o elemento
+//   formulário do HTML - atribuimos a
+//   propriedade insertAdjacentElement (permite adicionar um conteudo antes ou depois do conteudo a que foi atribuído)
+//   com a propriedade "beforebegin" (que sinaliza que deve ser posicionado antes) e a propriedade divMsg (que informa
+//   O QUE deve ser adicionado - e no caso é o elemeto DIV que criamos na segunda linha e configuramos ao longo do
+//   código)
    
 
 
