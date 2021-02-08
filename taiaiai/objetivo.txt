@@ -1,5 +1,11 @@
-criar um formulário onde o usuário possa inserir um titulo, um nome e um texto
+projeto independente do curso para treinamento ;)
 
-1: validar o formulario
-2: receber as informaçoes
-3: jogar em um acordeao
+1) criar um formulário onde o usuário possa inserir um titulo, um nome e um texto
+
+1.1: validar o formulario
+1.2: receber as informaçoes
+
+2) jogar as informações em um Acordeão
+2.1: criar acordeão através de template
+2.2: animar acordeão
+
