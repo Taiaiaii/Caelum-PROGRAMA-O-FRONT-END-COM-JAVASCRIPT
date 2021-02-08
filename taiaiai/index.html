@@ -16,28 +16,33 @@
         <form action="" class="formulario">
             <div class="grupo grupo-ref1">
                 <label class="etiqueta">Nome</label>
-                <input type="text" class="campo" value="" data-msg="Nome é obrigatorio" placeholder="Nome"></input>
+                <input type="text" class="campo campo-nome" value="" data-mensagem="Nome é obrigatorio"
+                    placeholder="Nome"></input>
             </div>
             <div class="grupo grupo-ref2">
                 <label class="etiqueta">Título</label>
-                <input type="text" class="campo" value="" data-msg="O título é obrigatorio"
+                <input type="text" class="campo campo-titulo" value="" data-mensagem="O título é obrigatorio"
                     placeholder="Título da mensagem"></input>
             </div>
             <div class="grupo grupo-ref3">
                 <label class="etiqueta">Mensagem</label>
-                <textarea cols="30" rows="10" id="mensagem" class="campo-msg" value="" data-msg="mensagem é obrigatória"
-                    placeholder="Deixe aqui sua mensagem"></textarea>
+                <textarea cols="30" rows="10" id="mensagem" class="campo campo-msg" value=""
+                    data-mensagem="Mensagem é obrigatória" placeholder="Deixe aqui sua mensagem"></textarea>
             </div>
             <div class="grupo grupo-ref4"><button id="botao"> Enviar</button></div>
         </form>
         <div class="entra-acordeoes">
+            <h1 class="titulo-mensagens">Mensagens Recebidas:</h1>
             <template id="template-acordeao">
                 <div class="acordeoes">
                     <div class="acordeao">
-                        <h2 class="nome-acordeao"></h2>
+                        <h2 class="nome-acordeao">{{NOME_EMISSOR}}</h2>
                         <div class="conteudo-acordeao">
-                            <h3 class="titulo-msg"></h3>
-                            <p class="msg"></p>
+                            <div class="conteudo-interno">
+                                <h3 class="titulo-msg">{{TITULO_MENSAGEM}}</h3>
+                                <p class="msg">{{CONTEUDO_MENSAGEM}}</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -46,6 +51,7 @@
 
     </div>
 
+    <script src="./js/app.js" type="module"></script>
 </body>
 
 </html>

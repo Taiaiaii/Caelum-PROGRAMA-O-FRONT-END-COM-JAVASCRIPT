@@ -4,9 +4,10 @@ body {
 }
 
 .titulo-principal {
-    width: 50%;
+    width: 80%;
     margin: auto;
-    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-size: 3em;
     font-weight: bold;
     text-align: center;
     color: white;
@@ -37,9 +38,27 @@ body {
     font-weight: bold;
 }
 
+.entra-acordeoes {
+    border-bottom: 3px solid black;
+    width: 50%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 5px;;
+}
+
+.titulo-mensagens {
+    padding: 5px;
+    font-size: 1.5em;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
 .acordeoes {
     width: 400px;
 }
+
+
 
 .acordeao {
     border: 1px solid #ccc;
@@ -54,6 +73,8 @@ body {
     margin: 0;
     padding: 10px 20px;
     border-bottom: 1px solid #ccc;
+    text-align: center;
+    font-weight: bold;
 }
 
 .conteudo-acordeao {
@@ -69,4 +90,21 @@ body {
 
 .msg {
     padding: 20px;
+}
+
+.formNovoCartao-msg {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    color: red;
+    background-color:white;
+    
+}
+
+
+.acordeoes {
+    border: 2px solid paleturquoise;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
 }
