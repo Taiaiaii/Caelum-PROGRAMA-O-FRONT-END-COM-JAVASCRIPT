@@ -1,5 +1,6 @@
 import {adicionarAcordeao} from './adicionar-acordeao.js';
 import {animaAcordeao} from './anima-acordeao.js';
+import {salvarDados} from './dados.js'
 
 const formulario = document.querySelector('.formulario');
 const msg = document.createElement('div');
@@ -28,6 +29,9 @@ formulario.addEventListener('submit', function(event) {
        adicionarAcordeao(nome.value, titulo.value, mensagem.value);
        formulario.reset();
        animaAcordeao();
+       salvarDados();
+
+
    }
 
    

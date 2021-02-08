@@ -9,3 +9,4 @@ projeto independente do curso para treinamento ;)
 2.1: criar acordeão através de template
 2.2: animar acordeão
 
+3) salvar em localsession
