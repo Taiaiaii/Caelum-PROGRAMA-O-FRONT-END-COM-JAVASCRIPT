@@ -8,6 +8,6 @@ export function adicionarAcordeao(nome, titulo, conteudo) {
     acordeao.innerHTML = acordeao.innerHTML.replace('{{NOME_EMISSOR}}', nome).replace('{{TITULO_MENSAGEM}}', titulo).replace('{{CONTEUDO_MENSAGEM}}', conteudo);
     document.body.append(acordeao);
 
-    salvarDados();
+   
 
 }

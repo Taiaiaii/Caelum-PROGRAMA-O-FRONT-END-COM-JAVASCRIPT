@@ -29,7 +29,7 @@ formulario.addEventListener('submit', function(event) {
        adicionarAcordeao(nome.value, titulo.value, mensagem.value);
        formulario.reset();
        animaAcordeao();
-       salvarDados();
+       
 
 
    }
