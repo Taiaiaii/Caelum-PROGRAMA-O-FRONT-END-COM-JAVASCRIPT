@@ -2,9 +2,10 @@ const mural = document.querySelector('.mural'); //função para trocar layout no
 const template = document.querySelector('#template-cartao');
 let numeroCartao = 0;
 //1) adicionar cartão atraves do template html
-export function adicionarCartao(conteudo) {
+export function adicionarCartao(conteudo, cor ='') {
     numeroCartao++;
     const cartao = template.content.firstElementChild.cloneNode(true); //gerando um obj igual mas com valor na memo diferente
+    cartao.style.backgroundColor = cor;
     cartao.innerHTML = cartao.innerHTML.replaceAll('{{NUMERO_DO_CARTAO}}', numeroCartao).replace('{{CONTEUDO_CARTAO}}', conteudo);
     mural.append(cartao);
 }
@@ -70,3 +71,6 @@ mural.addEventListener('keypress', function (event) {
 // 5) aqui adicionamos um evento escutador de tecla do teclado apertada. Dizemos que a variavel isLabel referencia o caso em que o alvo do evento  
 // tem como nome de tag LABEL. entao no if pedimos que para quando essa variavel for verdadeira e o alvo do evento for a tecla enter, ou o alvo do  
 // evento for a tecla espaço seja forçado um click no alvo do evento.
+
+
+//aula 5, colocou parametro cor na função adicionarCartão e linha que manda por cor de fundo no cartão igual do parametro
