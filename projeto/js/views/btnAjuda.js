@@ -29,3 +29,9 @@ btn.addEventListener('click', async () => {
 
         //aula 5
         // tirando as mensagens escritas do array e colocando por ajax
+
+        //no lugar do evento handles, colocamos um addeventlistener de click e abrimos uma função assincrona do tipo arrow
+        // criamos uma constante que deve esperar o resultado da fetch com a url de parametros. outra constante recebe a espera
+        // dessa constante e a converse em json, para que a api que contem as mensagens seja convertida em objeto. 
+        // a variavel mensagem recebe a segunda constante. intruçoes (que é um dos parametros do objeto). instruções é um array
+        // por isso depois iteramos esse array chamando a função adiciona cartao com paramtro de cada metodo do objeto.
