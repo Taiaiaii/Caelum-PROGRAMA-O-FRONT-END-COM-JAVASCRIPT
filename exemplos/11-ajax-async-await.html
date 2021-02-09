@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Api fetch async await </title>
+</head>
+
+<body>
+    <h1>AJAX com API Fetch async/await</h1>
+    <button id="btnCarregar"> Carregar </button>
+    <div class="conteudo">
+
+    </div>
+    <script>
+        const btnCarregar = document.querySelector('#btnCarregar');
+        const divConteudo = document.querySelector('.conteudo');
+
+        btnCarregar.addEventListener('click', async function () { // para usar await precisa da marcação async
+            try {
+
+                btnCarregar.disabled = true;
+                btnCarregar.textContent = 'carregando';
+
+                const resposta = await fetch(
+                    '02-dom.html') //guardando o resultado e nao a promisse através do await
+                let stringHhmlCarregado = await resposta.text();
+                divConteudo.innerHTML = stringHhmlCarregado;
+            } catch (erro) {
+                console.error(erro);
+                divConteudo.textContent = 'erro ao carregar'
+            } finally {
+                btnCarregar.disabled = false;
+                btnCarregar.textContent = 'carregar';
+            }
+        });
+    </script>
+</body>
+
+</html>
