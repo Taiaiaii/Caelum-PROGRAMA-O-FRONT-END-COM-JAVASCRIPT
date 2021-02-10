@@ -1,7 +1,18 @@
+import {getCartoesSalvos} from '../server/sync.js'
+
 const mural = document.querySelector('.mural'); //função para trocar layout no click do botão linha
 const template = document.querySelector('#template-cartao');
 let numeroCartao = 0;
 //1) adicionar cartão atraves do template html
+
+//carrega os cartoes salvos e exibe no mural
+getCartoesSalvos().then(listaDeCartoesServidor =>{
+    listaDeCartoesServidor.forEach(cartao => {
+        adicionarCartao(cartao.conteudo, cartao.cor);
+    })
+});
+
+
 export function adicionarCartao(conteudo, cor ='') {
     numeroCartao++;
     const cartao = template.content.firstElementChild.cloneNode(true); //gerando um obj igual mas com valor na memo diferente
@@ -14,6 +25,24 @@ export function adicionarCartao(conteudo, cor ='') {
 export function toggleLayout() {
     mural.classList.toggle('mural--linha');
 }
+
+//aula6 - transformar cartoes em json
+
+export function getCartoes() {
+    const cartoes = mural.querySelectorAll('.cartao');
+    const listaDeCartoes = Array.from(cartoes).map(cartao => {
+        return {
+            conteudo: cartao.querySelector('.cartao-conteudo').textContent.trim(),
+            cor: cartao.style.backgroundColor
+        }
+        
+    });  // array.from transforma em array  . map muda os elementos - aqui pedimos para que para cada cartão seja retornado um objeto com essas duas propriedades
+
+
+
+    return listaDeCartoes;
+}
+
 
 // 3) botao excluir dos cartoes
 mural.addEventListener('click', function (event) {

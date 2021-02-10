@@ -13,23 +13,7 @@
 </div>
 
 <script>
-    // 1. Guardar a referência do botão
-    // 2. Guardar a referêcia da <div> que exibirá os posts do blog
-    // 3. Adicionar um evento click ao botão
-    // 4. Limpar o conteúdo HTML da <div> (?????????) - para nao acumular
-    // 5. Fazer uma requisição AJAX para a URL https://jsonplaceholder.typicode.com/posts
-    // 6. Converter a resposta em JSON
-    // 7. O valor retornado é um ARRAY DE POSTS. Percorra esse ARRAY e para cada POST crie um
-    // elemento <div> em memória
-    // 8. Adicione a esse <div> duas classes: "card" e "mb-3"
-    // 9. Coloque dentro desse <div> o seguinte HTML
-    // `<div class="card-header">
-    // ${post.title}
-    // </div>
-    // <div class="card-body">
-    // ${post.body}
-    // </div>`
-    // 10. Coloque cada <div> criada como último-filho do elemento que exibirá os POSTS
+
 
 
     const btnPosts = document.querySelector('.btn-primary');
@@ -56,7 +40,16 @@
                 divPosts.appendChild(divPost);
             }
 
-            
+    // primeiro criamos uma constante para referenciar o botao no html que carregara os posts da api. depois criamos uma constante
+    // para referenciar o espaço na dom que irá receber os posts. Ao botão, adicionamos um evento escutador de clique, e quando for clicado
+    // irá disparar uma função assincrona. A primeira coisa da função é que o espaço onde os posts deverao entrar deve ser "limpo" - isso é
+    // recebe string vazia. fazemos isso para que ao clicar no botão mais de uma vez os posts nao fiquem se acumulando, eles sumam depois
+    // carreguem de novo. 
+    // então criamos uma constante chamada resposta que recebe a promessa da opoeração ajax. Depois criamos a constante post que referencia
+    // resposta.json() que é a conversão da api em objeto. Como este obg trata-se de um array, criamos uma estrutura de repetição do tipo
+    // for para iterar essa list. Pedimos que para cada iteração seja criada uma div que sera referenciada pela constante divPost, essa divPost 
+    // recebe uma classe, depois recebe um innerHTML onde é concatenado elementos html tendo como conteudos o post com propriedades do json.
+    // por fim pedimos para que a div post seja adicionada como ultima filha de divPosts.         
          
 
     })

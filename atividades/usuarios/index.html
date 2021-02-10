@@ -29,7 +29,7 @@
     const select = document.querySelector('.custom-select');
     const infoUsuarios = document.querySelector('.card-body');
 
-    window.addEventListener('load', async function () {
+    window.addEventListener('load', async  () => {
         const resposta = await fetch('https://jsonplaceholder.typicode.com/users');
         const listaUsuarios = await resposta.json();
 
@@ -45,7 +45,7 @@
         }
 
         select.addEventListener('change', async () => {
-            if (!select) {
+            if (!select.value) {
                 infoUsuarios.textContent =
                     "Selecione um usuário para exibir seus dados aqui :)";
             } else {
@@ -58,7 +58,7 @@
                     NOME: ${usuarioRetornado.name} <br>
                     USERNAME: ${usuarioRetornado.username}<br> 
                     E-MAIL: ${usuarioRetornado.email} <br>
-                    CIDADE:${usuarioRetornado.city}<br> 
+                    CIDADE:${usuarioRetornado.address.city}<br> 
                     SITE: ${usuarioRetornado.website}<br>
                 ` 
             }
