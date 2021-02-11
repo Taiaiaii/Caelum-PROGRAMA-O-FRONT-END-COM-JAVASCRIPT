@@ -18,39 +18,31 @@ export async function getInstrucoes() {
  */
 export async function salvarCartoes(listaDeCartoes){
 
-    try{
-
         const infoUsuario = {
             usuario: usuarioLogado,
             cartoes: listaDeCartoes
-        };  //criando um obj
+        }; //criando um obj
 
         let url = 'http://wd47-ceep.herokuapp.com/salvar-cartoes.php ';
         const respostaServidor = await fetch(url, { //abrindo uma requisição
-            method: 'POST',  // configurando metodo
-            header: { 
-                'Content-type' : 'application/json'  //tipo de conteudo
+            method: 'POST', // configurando metodo
+            header: {
+                'Content-type': 'application/json' //tipo de conteudo
             },
             body: JSON.stringify(infoUsuario) //transformando o a função pra string json
 
         });
 
         const statusServidor = await respostaServidor.json();
-        
-        
 
-        if(statusServidor.quantidade == 1) {
+
+
+        if (statusServidor.quantidade == 1) {
             return 'cartão salvo com sucesso!';
-        }else 
+        } else
             return statusServidor.quantidade + ' cartões salvos com sucesso!';
 
-    }
-    catch(e){
-        console.error(e);
-        return 'erro ao enviar informações para o servidor!';
-    }
-
-}
+};
 /**
  * retorna a lista de cartões salvos no back-end
  * @return {Promise<Array>}

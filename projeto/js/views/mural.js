@@ -1,18 +1,35 @@
+import {notificar} from './notificacao.js'
+import {IDBSubscribeOnLoadCartoes} from '../storage/db.js'
 import {getCartoesSalvos} from '../server/sync.js'
 
 const mural = document.querySelector('.mural'); //função para trocar layout no click do botão linha
 const template = document.querySelector('#template-cartao');
 let numeroCartao = 0;
-//1) adicionar cartão atraves do template html
 
-//carrega os cartoes salvos e exibe no mural
-getCartoesSalvos().then(listaDeCartoesServidor =>{
-    listaDeCartoesServidor.forEach(cartao => {
+
+IDBSubscribeOnLoadCartoes(async function(cartoesLocais){
+    let listaCartoes = [];
+    try {
+        listaCartoes = await getCartoesSalvos();
+        if(cartoesLocais.length > 0 && confirm('vc ainda possui cartões salvos localmente. \n Deseja exibi-los no mural também?')) {
+            listaCartoes.push(...cartoesLocais); // ... spread operator - expalha os itens do array em algum lugar
+        }
+
+    }catch(e){
+        listaCartoes = cartoesLocais;
+        if (!listaCartoes.length) {
+            notificar('não há cartões salvos localmente a serem exibidos')
+        }
+    }
+
+    mural.innerHTML = '';
+    listaCartoes.forEach(cartao =>{
         adicionarCartao(cartao.conteudo, cartao.cor);
-    })
+    });
 });
 
 
+//1) adicionar cartão atraves do template html
 export function adicionarCartao(conteudo, cor ='') {
     numeroCartao++;
     const cartao = template.content.firstElementChild.cloneNode(true); //gerando um obj igual mas com valor na memo diferente

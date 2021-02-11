@@ -22,21 +22,21 @@
             btnCarregar.disabled = true; // nao permitir varios cliques
             btnCarregar.textContent = 'carregando'
 
-            fetch('02-dom.html').then(function(resposta){
-                return resposta.text();
-            })
-            .then(function(stringHtmlCarregada){
-                divConteudo.innerHTML = stringHtmlCarregada;
+            fetch('02-dom.html').then(function (resposta) {
+                    return resposta.text();
+                })
+                .then(function (stringHtmlCarregada) {
+                    divConteudo.innerHTML = stringHtmlCarregada;
 
-            })
-            .catch(function(erro){
-                console.error(erro)
-                divConteudo.textContent = 'erro ao carregar infos'
-            })
-            .finally(function(){
-                btnCarregar.disabled = false;
-                btnCarregar.textContent = 'Carregar';
-            })
+                })
+                .catch(function (erro) {
+                    console.error(erro)
+                    divConteudo.textContent = 'erro ao carregar infos'
+                })
+                .finally(function () {
+                    btnCarregar.disabled = false;
+                    btnCarregar.textContent = 'Carregar';
+                })
         });
     </script>
 </body>

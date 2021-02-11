@@ -10,3 +10,16 @@ import './views/btnLogout.js'
 //do HTML, com tanto que tenha o type="module" - que sinaliza que estamos trabalhando com modularização
 
 //arquivos do server nao precisam ser importados
+
+//COMO ESSE ARQUIVO GERENCIA TUDO, REGISTRAREMOS O SERVICE WORKER AQUI
+
+async function registrarServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        const registro = await navigator.serviceWorker.register('/projeto/sw.js', {
+            updateViaCache: 'none'
+        });
+        console.log('service worker registrado', registro);
+    }
+}
+
+registrarServiceWorker();

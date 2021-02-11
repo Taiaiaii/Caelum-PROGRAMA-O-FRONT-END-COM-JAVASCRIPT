@@ -24,8 +24,7 @@
                 btnCarregar.disabled = true;
                 btnCarregar.textContent = 'carregando';
 
-                const resposta = await fetch(
-                    '02-dom.html') //guardando o resultado e nao a promisse através do await
+                const resposta = await fetch( '02-dom.html') //guardando o resultado e nao a promisse através do await
                 let stringHhmlCarregado = await resposta.text();
                 divConteudo.innerHTML = stringHhmlCarregado;
             } catch (erro) {
