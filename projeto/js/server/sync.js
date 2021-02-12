@@ -21,7 +21,12 @@ export async function salvarCartoes(listaDeCartoes){
         const infoUsuario = {
             usuario: usuarioLogado,
             cartoes: listaDeCartoes
-        }; //criando um obj
+        } //criando um obj
+
+        const abortController = new AbortController();
+        setTimeout(()=> {
+            abortController.abort();
+        }, 5000);
 
         let url = 'http://wd47-ceep.herokuapp.com/salvar-cartoes.php ';
         const respostaServidor = await fetch(url, { //abrindo uma requisição
@@ -29,7 +34,8 @@ export async function salvarCartoes(listaDeCartoes){
             header: {
                 'Content-type': 'application/json' //tipo de conteudo
             },
-            body: JSON.stringify(infoUsuario) //transformando o a função pra string json
+            body: JSON.stringify(infoUsuario), //transformando o a função pra string json
+            signal: abortController.signal
 
         });
 

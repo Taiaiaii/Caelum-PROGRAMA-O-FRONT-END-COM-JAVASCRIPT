@@ -42,9 +42,10 @@ export function IDBSubscribeOnLoadCartoes(funcaoCallback) {
  */
 export function salvarCartoesStore(listaDeCartoes) {  //banco de dados de back-up, para caso por exemplo o usuario esteja sem internet, nao perder seus dados
 
-    return new Promise(function(resolve, reject){  // função callback de promise
+    return new Promise(async function(resolve, reject){  // função callback de promise
+        await excluiCartoesStore ()
         const tx = db.transaction('store_cartoes', 'readwrite');
-        tx.objectStore('store_cartoes').clear();
+        
 
         for (let cartao of listaDeCartoes) {
             tx.objectStore('store_cartoes').add(cartao);
@@ -52,5 +53,17 @@ export function salvarCartoesStore(listaDeCartoes) {  //banco de dados de back-u
 
         tx.oncomplete = () => resolve('cartões salvos com sucesso na base de dado local');
         tx.onerror = ()=> reject('erro ao salvar dados na base de dados local!');
+    });
+}
+
+/** * Função que exclui os cartões salvos no banco de dados do front-end 
+ * * @returns {Promise<string>} 
+ * */
+export function excluiCartoesStore() {
+    return new Promise(function (resolve, reject) {
+        const tx = db.transaction('store_cartoes', 'readwrite');
+        tx.objectStore('store_cartoes').clear();
+        tx.oncomplete = () => resolve('Cartões locais excluídos com sucesso!');
+        tx.onerror = () => reject('Erro ao excluir cartões da base de dados local!');
     });
 }
