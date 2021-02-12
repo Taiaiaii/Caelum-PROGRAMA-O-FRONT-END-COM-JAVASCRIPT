@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Acordeões com Web Animation API</h1>
+    <div class="acordeoes">
+        <div class="acordeao">
+            <h4>Acordeão 1</h4>
+            <div class="conteudo">
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore neque eaque, placeat nemo
+                    praesentium eos dolorem veniam voluptate, quis officiis culpa. Non, repellendus illum. Nisi tenetur
+                    rem distinctio nesciunt illum!</div>
+            </div>
+        </div>
+        <div class="acordeao">
+            <h4>Acordeão 2</h4>
+            <div class="conteudo">
+                <div>Dolorem eaque tempore tempora alias laborum sunt animi neque quaerat debitis doloremque veniam
+                    blanditiis eligendi minus dolorum voluptate rem enim ratione, aperiam possimus vitae voluptatem. Est
+                    voluptas quis a doloremque.</div>
+            </div>
+        </div>
+        <div class="acordeao">
+            <h4>Acordeão 3</h4>
+            <div class="conteudo">
+                <div>Ea laboriosam, vel voluptatem nemo, beatae numquam provident impedit, iure accusantium similique
+                    sequi incidunt mollitia sapiente dolorem illum autem itaque quam quo temporibus blanditiis! Porro
+                    illo provident fugit explicabo inventore!</div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 16px;
+        }
+
+        .acordeoes {
+            width: 400px;
+        }
+
+        .acordeao {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            cursor: pointer;
+            background-color: #eee;
+            margin: 0;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .conteudo {
+            display: none;
+            overflow: hidden;
+        }
+
+        .conteudo div {
+            padding: 20px;
+        }
+    </style>
+
+    <script src="../jquery.js"></script>
+
+    <script>
+        $('.acordeoes').on('click','h4', function(){
+            $(this).next().slideToggle(600)  // slideToggle - se estiver aberto fecha e vice versa
+            $(this).parent().siblings().find('.conteudo').slideUp(600); //pega o alvo, vai no pai, vai nos irmaos desse pai, 
+            //acha quem tem a class conteudo e manda fechar em 600ms 
+
+        });
+    </script>

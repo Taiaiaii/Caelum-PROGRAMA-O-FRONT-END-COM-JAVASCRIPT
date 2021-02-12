@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<h1>jQuery: $()</h1>
+<style>
+    p {
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        padding: 15px;
+    }
+
+    p.vermelho {
+        background-color: #fff0f0;
+        border-color: red;
+        color: red;
+    }
+</style>
+<p>Parágrafo 1</p>
+<p class="vermelho">Parágrafo 2</p>
+<p>Parágrafo 3</p>
+<p>Parágrafo 4</p>
+<p class="vermelho">Parágrafo 5</p>
+<p class="vermelho">Parágrafo 6</p>
+<p>Parágrafo 7</p>
+<p>Parágrafo 8</p>
+<p>Parágrafo 9</p>
+<p id="p10">Parágrafo 10</p>
+
+<script src="../jquery.js"></script>
+<script>
+
+        $('#p10').text('texto alterado pelo jquery')
+        $('#p10').html('texto alterado pelo <strong>jquery</strong> alterando o html')
+
+        // tudo no jquery é metodo
+
+        //comportamento chamado metodo chain (cadeia de metodos)
+        $('#p10').html('texto alterado pelo <strong>jquery</strong> alterando o html').css('font-style, italic ')
+        //css pode ser passado como objeto
+         $('#p10').html('texto alterado pelo <strong>jquery</strong> alterando o html').css({
+             'font-style':' italic ',
+             'font-size': '25px'
+             
+         })
+
+         $('.vermelho').text('texto alterado pelo jquery em todos os vermelhos');
+
+        // loopings - nao tem. ele já entende que é tudo sozinho
+</script>
